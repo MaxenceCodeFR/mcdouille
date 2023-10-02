@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+{% block title %}Détail du produit{% endblock %}
+{% block body %}
+
+{% include 'commons/_nav.html.twig' %}
+
+{{ products.name }}<br>
+{{ products.price }}<br>
+{{ products.description}}<br>
+{{ products.allergens.name}}
+
+{% endblock %}

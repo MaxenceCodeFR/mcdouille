@@ -1,0 +1,8 @@
+{% for category in categories %}
+    {% if category.parent == null %} 
+        <ul  class="p-3 m-3 display-6">{{ category.name }}
+    {% else %}
+        <li class="ms-5"><a href="{{ path('categories_list', {id:category.id})}}">{{ category.name }}</a></li>       
+        {% endif %}
+        </ul>
+{% endfor %}

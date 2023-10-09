@@ -19,10 +19,9 @@ class Categories
     private ?string $name = null;
 
     #[ORM\Column(type: 'integer')]
-    private ?int $categoryOrder;
+    private ?int $categoryOrder = null;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'categories')]
-    #[ORM\JoinColumn(onDelete: 'CASCADE')]
     private ?self $parent = null;
 
     #[ORM\OneToMany(mappedBy: 'parent', targetEntity: self::class)]

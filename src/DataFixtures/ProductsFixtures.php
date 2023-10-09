@@ -8,11 +8,16 @@ use Doctrine\Bundle\FixturesBundle\Fixture;;
 
 class ProductsFixtures extends Fixture
 {
+    public static function getGroups(): array
+    {
+        return ['products'];
+    }
+
     public function load(ObjectManager $manager): void
     {
         $faker = \Faker\Factory::create('fr_FR');
 
-        for ($prod = 1; $prod <= 15; $prod++) {
+        for ($prod = 1; $prod <= 30; $prod++) {
             $product = new Products();
             $product->setName($faker->word());
             $product->setDescription($faker->text());
@@ -25,7 +30,7 @@ class ProductsFixtures extends Fixture
 
             //On récupère la référence de l'allergène
             //pour avoir des produits avec un allergène au moins
-            $allergen = $this->getReference('allergen_' . rand(1, 14));
+            $allergen = $this->getReference('allergen_' . rand(2, 14));
             $product->setAllergens($allergen);
 
             //On crée la référence à l'image
